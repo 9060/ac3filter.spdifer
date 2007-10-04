@@ -374,30 +374,6 @@ SpdiferDlg::update_static_controls()
   EnableWindow(GetDlgItem(m_Dlg, IDC_CHK_SPDIF_ALLOW_44), spdif_check_sr);
   EnableWindow(GetDlgItem(m_Dlg, IDC_CHK_SPDIF_ALLOW_32), spdif_check_sr);
   CheckDlgButton(m_Dlg, IDC_CHK_REINIT, reinit > 0? BST_CHECKED: BST_UNCHECKED);
-
-  /////////////////////////////////////
-  // Merit
-
-  int filter_merit = get_merit(HKEY_CLASSES_ROOT, "CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance\\{A753A1EC-973E-4718-AF8E-A3F554D45C44}");
-
-  // Win2K/WinXP
-  int ds_merit = get_merit(HKEY_CURRENT_USER, "Software\\Microsoft\\ActiveMovie\\devenum\\{E0F158E1-CB04-11D0-BD4E-00A0C911CE86}\\Default DirectSound Device"); 
-  int wo_merit = get_merit(HKEY_CURRENT_USER, "Software\\Microsoft\\ActiveMovie\\devenum\\{E0F158E1-CB04-11D0-BD4E-00A0C911CE86}\\Default WaveOut Device");
-  // Win9x case
-  if (!ds_merit) ds_merit = get_merit(HKEY_CLASSES_ROOT, "{E0F158E1-CB04-11d0-BD4E-00A0C911CE86}\\InstanceCm\\Default DirectSound Device");
-  if (!wo_merit) wo_merit = get_merit(HKEY_CLASSES_ROOT, "{E0F158E1-CB04-11d0-BD4E-00A0C911CE86}\\InstanceCm\\Default WaveOut Device");
-
-  if (filter_merit)
-  {
-    SendDlgItemMessage(m_Dlg, IDC_RBT_MERIT_PREFERRED, BM_SETCHECK, filter_merit >  MERIT_NORMAL? BST_CHECKED: BST_UNCHECKED, 1);
-    SendDlgItemMessage(m_Dlg, IDC_RBT_MERIT_UNLIKELY,  BM_SETCHECK, filter_merit <= MERIT_NORMAL? BST_CHECKED: BST_UNCHECKED, 1);
-  }
-    
-  if (wo_merit && ds_merit)
-  {
-    SendDlgItemMessage(m_Dlg, IDC_RBT_RENDER_DS, BM_SETCHECK, ds_merit > wo_merit? BST_CHECKED: BST_UNCHECKED, 1);
-    SendDlgItemMessage(m_Dlg, IDC_RBT_RENDER_WO, BM_SETCHECK, ds_merit < wo_merit? BST_CHECKED: BST_UNCHECKED, 1);
-  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -543,63 +519,6 @@ SpdiferDlg::command(int control, int message)
     case IDC_BTN_DONATE:
       if (message == BN_CLICKED)
         ShellExecute(0, 0, "http://order.kagi.com/?6CZJZ", 0, 0, SW_SHOWMAXIMIZED);
-      break;
-
-    /////////////////////////////////////
-    // Merit 
-
-    case IDC_RBT_RENDER_DS:
-      if (message == BN_CLICKED)
-      {
-        // DirectSound
-        set_merit(HKEY_CLASSES_ROOT, "{E0F158E1-CB04-11d0-BD4E-00A0C911CE86}\\InstanceCm\\Default DirectSound Device", 0x800000);
-        set_merit(HKEY_CURRENT_USER, "Software\\Microsoft\\ActiveMovie\\devenum\\{E0F158E1-CB04-11D0-BD4E-00A0C911CE86}\\Default DirectSound Device", 0x800000); 
-        // WaveOut
-        set_merit(HKEY_CLASSES_ROOT, "{E0F158E1-CB04-11d0-BD4E-00A0C911CE86}\\InstanceCm\\Default WaveOut Device", 0x200000);
-        set_merit(HKEY_CURRENT_USER, "Software\\Microsoft\\ActiveMovie\\devenum\\{E0F158E1-CB04-11D0-BD4E-00A0C911CE86}\\Default WaveOut Device", 0x200000);
-        // Clear filter cache
-        delete_reg_key("Software\\Microsoft\\Multimedia\\ActiveMovie\\Filter Cache", HKEY_CURRENT_USER);
-
-        update();
-      }
-      break;
-
-    case IDC_RBT_RENDER_WO:
-      if (message == BN_CLICKED)
-      {
-        // DirectSound
-        set_merit(HKEY_CLASSES_ROOT, "{E0F158E1-CB04-11d0-BD4E-00A0C911CE86}\\InstanceCm\\Default DirectSound Device", 0x200000);
-        set_merit(HKEY_CURRENT_USER, "Software\\Microsoft\\ActiveMovie\\devenum\\{E0F158E1-CB04-11D0-BD4E-00A0C911CE86}\\Default DirectSound Device", 0x200000); 
-        // WaveOut
-        set_merit(HKEY_CLASSES_ROOT, "{E0F158E1-CB04-11d0-BD4E-00A0C911CE86}\\InstanceCm\\Default WaveOut Device", 0x800000);
-        set_merit(HKEY_CURRENT_USER, "Software\\Microsoft\\ActiveMovie\\devenum\\{E0F158E1-CB04-11D0-BD4E-00A0C911CE86}\\Default WaveOut Device", 0x800000);
-        // Clear filter cache
-        delete_reg_key("Software\\Microsoft\\Multimedia\\ActiveMovie\\Filter Cache", HKEY_CURRENT_USER);
-
-        update();
-      }
-      break;
-
-    case IDC_RBT_MERIT_PREFERRED:
-      if (message == BN_CLICKED)
-      {
-        set_merit(HKEY_CLASSES_ROOT, "CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance\\{38CD9158-EC2E-4292-8FFE-7A86EF4F1EDF}", 0x10000000);
-        // Clear filter cache
-        delete_reg_key("Software\\Microsoft\\Multimedia\\ActiveMovie\\Filter Cache", HKEY_CURRENT_USER);
-
-        update();
-      }
-      break;
-
-    case IDC_RBT_MERIT_UNLIKELY:
-      if (message == BN_CLICKED)
-      {
-        set_merit(HKEY_CLASSES_ROOT, "CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance\\{38CD9158-EC2E-4292-8FFE-7A86EF4F1EDF}", MERIT_UNLIKELY);
-        // Clear filter cache
-        delete_reg_key("Software\\Microsoft\\Multimedia\\ActiveMovie\\Filter Cache", HKEY_CURRENT_USER);
-
-        update();
-      }
       break;
   }
 }
