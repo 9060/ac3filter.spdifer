@@ -10,12 +10,6 @@
 #define IDC_LBL_FRAMES_ERRORS           50304
 #define IDC_EDT_FRAMES                  50305
 #define IDC_EDT_ERRORS                  50306
-#define IDC_GRP_MERIT                   51701
-#define IDC_RBT_MERIT_PREFERRED         51702
-#define IDC_RBT_MERIT_UNLIKELY          51703
-#define IDC_GRP_RENDERER                51801
-#define IDC_RBT_RENDER_DS               51802
-#define IDC_RBT_RENDER_WO               51803
 #define IDC_GRP_SPDIF_PT                52001
 #define IDC_CHK_SPDIF_MPA               52002
 #define IDC_CHK_SPDIF_AC3               52003
@@ -45,10 +39,6 @@
 #define IDC_LBL_LICENSE                 52805
 #define IDC_GRP_CONTACT                 52806
 #define IDC_LBL_CONTACT                 52807
-#define IDC_GRP_ENV                     52808
-#define IDC_EDT_ENV                     52809
-#define IDC_GRP_CREDITS                 52810
-#define IDC_EDT_CREDITS                 52811
 #define IDC_VER                         52901
 #define IDC_BTN_DONATE                  52902
 
