@@ -7,14 +7,14 @@
 #define SPDIFER_DS_H
 
 #include <streams.h>
-#include "filters\spdifer.h"
-#include "filters\demux.h"
+#include "spdifer_graph.h"
 #include "sink\sink_dshow.h"
+
 
 class SpdiferDS : public CTransformFilter, public ISpdifer, public ISpecifyPropertyPages
 {
 protected:
-  Spdifer spdifer;
+  SpdiferGraph spdifer;
   DShowSink *sink;
 
   bool sync;

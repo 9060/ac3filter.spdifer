@@ -10,10 +10,11 @@
 #define IDC_LBL_FRAMES_ERRORS           50304
 #define IDC_EDT_FRAMES                  50305
 #define IDC_EDT_ERRORS                  50306
+#define IDC_CHK_AC3                     51603
+#define IDC_CHK_DTS                     51604
+#define IDC_CHK_MPA                     51605
+#define IDC_CHK_PES                     51606
 #define IDC_GRP_SPDIF_PT                52001
-#define IDC_CHK_SPDIF_MPA               52002
-#define IDC_CHK_SPDIF_AC3               52003
-#define IDC_CHK_SPDIF_DTS               52004
 #define IDC_GRP_DTS_MODE                52101
 #define IDC_RBT_DTS_MODE_AUTO           52102
 #define IDC_RBT_DTS_MODE_WRAPPED        52103

@@ -190,7 +190,7 @@ SpdiferDS::process_chunk(const Chunk *_chunk)
     ///////////////////////////////////////////////////////
     // SPDIF as PCM
 
-    if (spdif_as_pcm)
+    if (spdif_as_pcm && (chunk.spk.format == FORMAT_SPDIF))
       chunk.spk = Speakers(FORMAT_PCM16, MODE_STEREO, chunk.spk.sample_rate);
 
     ///////////////////////////////////////////////////////

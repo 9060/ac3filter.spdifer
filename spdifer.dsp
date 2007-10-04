@@ -103,6 +103,14 @@ PostBuild_Cmds=_reg debug
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=.\valib\filters\convert.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\valib\filters\convert.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\valib\filters\demux.cpp
 # End Source File
 # Begin Source File
@@ -257,6 +265,14 @@ SOURCE=.\valib\defs.h
 # Begin Source File
 
 SOURCE=.\valib\filter.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\valib\filter_graph.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\valib\filter_graph.h
 # End Source File
 # Begin Source File
 

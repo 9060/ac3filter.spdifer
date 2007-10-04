@@ -39,12 +39,14 @@ BEGIN
     EDITTEXT        IDC_EDT_ERRORS,112,128,23,12,ES_AUTOHSCROLL | 
                     ES_READONLY
     GROUPBOX        "SPDIF passthrough",IDC_GRP_SPDIF_PT,170,8,192,32
-    CONTROL         "AC3",IDC_CHK_SPDIF_AC3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,185,23,29,8
-    CONTROL         "DTS",IDC_CHK_SPDIF_DTS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,236,23,31,8
-    CONTROL         "MPEG Audio",IDC_CHK_SPDIF_MPA,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,289,23,57,8
+    CONTROL         "AC3",IDC_CHK_AC3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    180,23,29,8
+    CONTROL         "DTS",IDC_CHK_DTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    217,23,31,8
+    CONTROL         "MPEG Audio",IDC_CHK_MPA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,256,23,57,8
+    CONTROL         "DVD",IDC_CHK_PES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    321,23,31,8
     GROUPBOX        "SPDIF/DTS mode",IDC_GRP_DTS_MODE,170,42,94,44
     RADIOBUTTON     "Auto",IDC_RBT_DTS_MODE_AUTO,177,53,84,8
     RADIOBUTTON     "SPDIF wrapped",IDC_RBT_DTS_MODE_WRAPPED,177,63,84,8

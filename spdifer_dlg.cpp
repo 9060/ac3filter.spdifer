@@ -344,9 +344,10 @@ SpdiferDlg::update_static_controls()
   /////////////////////////////////////
   // SPDIF passthrough
 
-  CheckDlgButton(m_Dlg, IDC_CHK_SPDIF_MPA, (formats & FORMAT_MASK_MPA) != 0? BST_CHECKED: BST_UNCHECKED);
-  CheckDlgButton(m_Dlg, IDC_CHK_SPDIF_AC3, (formats & FORMAT_MASK_AC3) != 0? BST_CHECKED: BST_UNCHECKED);
-  CheckDlgButton(m_Dlg, IDC_CHK_SPDIF_DTS, (formats & FORMAT_MASK_DTS) != 0? BST_CHECKED: BST_UNCHECKED);
+  CheckDlgButton(m_Dlg, IDC_CHK_MPA, (formats & FORMAT_MASK_MPA) != 0? BST_CHECKED: BST_UNCHECKED);
+  CheckDlgButton(m_Dlg, IDC_CHK_AC3, (formats & FORMAT_MASK_AC3) != 0? BST_CHECKED: BST_UNCHECKED);
+  CheckDlgButton(m_Dlg, IDC_CHK_DTS, (formats & FORMAT_MASK_DTS) != 0? BST_CHECKED: BST_UNCHECKED);
+  CheckDlgButton(m_Dlg, IDC_CHK_PES, (formats & FORMAT_MASK_PES) != 0? BST_CHECKED: BST_UNCHECKED);
 
   /////////////////////////////////////
   // SPDIF/DTS output mode
@@ -388,14 +389,16 @@ SpdiferDlg::command(int control, int message)
     /////////////////////////////////////
     // SPDIF passthrough
 
-    case IDC_CHK_SPDIF_MPA:
-    case IDC_CHK_SPDIF_AC3:
-    case IDC_CHK_SPDIF_DTS:
+    case IDC_CHK_MPA:
+    case IDC_CHK_AC3:
+    case IDC_CHK_DTS:
+    case IDC_CHK_PES:
     {
       formats = 0;
-      formats |= IsDlgButtonChecked(m_Dlg, IDC_CHK_SPDIF_MPA) == BST_CHECKED? FORMAT_MASK_MPA: 0;
-      formats |= IsDlgButtonChecked(m_Dlg, IDC_CHK_SPDIF_AC3) == BST_CHECKED? FORMAT_MASK_AC3: 0;
-      formats |= IsDlgButtonChecked(m_Dlg, IDC_CHK_SPDIF_DTS) == BST_CHECKED? FORMAT_MASK_DTS: 0;
+      formats |= IsDlgButtonChecked(m_Dlg, IDC_CHK_MPA) == BST_CHECKED? FORMAT_MASK_MPA: 0;
+      formats |= IsDlgButtonChecked(m_Dlg, IDC_CHK_AC3) == BST_CHECKED? FORMAT_MASK_AC3: 0;
+      formats |= IsDlgButtonChecked(m_Dlg, IDC_CHK_DTS) == BST_CHECKED? FORMAT_MASK_DTS: 0;
+      formats |= IsDlgButtonChecked(m_Dlg, IDC_CHK_PES) == BST_CHECKED? FORMAT_MASK_PES: 0;
       filter->set_formats(formats);
       update();
       break;
