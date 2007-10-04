@@ -8,6 +8,7 @@
 
 #include <streams.h>
 #include "filters\spdifer.h"
+#include "filters\demux.h"
 #include "sink\sink_dshow.h"
 
 class SpdiferDS : public CTransformFilter, public ISpdifer, public ISpecifyPropertyPages

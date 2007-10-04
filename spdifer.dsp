@@ -103,6 +103,14 @@ PostBuild_Cmds=_reg debug
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=.\valib\filters\demux.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\valib\filters\demux.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\valib\filters\parser_filter.cpp
 # End Source File
 # Begin Source File
@@ -252,6 +260,14 @@ SOURCE=.\valib\filter.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\valib\mpeg_demux.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\valib\mpeg_demux.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\valib\parser.cpp
 # End Source File
 # Begin Source File
@@ -265,6 +281,14 @@ SOURCE=.\valib\spk.cpp
 # Begin Source File
 
 SOURCE=.\valib\spk.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\valib\syncscan.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\valib\syncscan.h
 # End Source File
 # Begin Source File
 
