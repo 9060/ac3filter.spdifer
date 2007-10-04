@@ -392,6 +392,10 @@ SOURCE=.\spdifer_ds.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\spdifer_graph.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\spdifer_ver.h
 # End Source File
 # End Group
