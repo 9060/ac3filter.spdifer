@@ -44,7 +44,7 @@ my $make_src = "pkzip25 -add -rec -dir -excl=CVS -excl=pic_psd -lev=9 $src spdif
 sub set_ver
 {
   my $ver = shift;
-  open VER, "> ac3filter_ver.h";
+  open VER, "> spdifer_ver.h";
   printf VER <<EOVER;
 #ifndef SPDIFER_VER
 #define SPDIFER_VER "$ver"
