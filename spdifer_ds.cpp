@@ -4,6 +4,15 @@
 #include "parsers\spdif\spdif_header.h"
 #include "decss\DeCSSInputPin.h"
 
+///////////////////////////////////////////////////////////////////////////////
+// Define number of buffers sent to downstream. Each buffer contains one
+// SPDIF frame, so this value determines total buffer length.
+//
+// For 48kHz AC3 this leads to:
+// 1536 [samples/fr] / 48000 [samples/s] * 30 [frames] ~= 900ms
+
+#define DSHOW_BUFFERS 30
+
 // uncomment this to log timing information into DirectShow log
 //#define LOG_TIMING
 
@@ -473,10 +482,11 @@ SpdiferDS::Run(REFERENCE_TIME tStart)
     Chunk chunk;
     chunk.set_rawdata(Speakers(FORMAT_PCM16, MODE_STEREO, spdifer.get_input().sample_rate, 32767), buf, reinit * 4);
 
+    BeginFlush();
+    EndFlush();
     sink->process(&chunk);
-
-    spdifer.reset();
-    sink->send_discontinuity();
+    BeginFlush();
+    EndFlush();
   }
 
   return S_OK;
@@ -642,7 +652,7 @@ SpdiferDS::DecideBufferSize(IMemAllocator *pAlloc, ALLOCATOR_PROPERTIES *pProper
   ASSERT(pProperties);
   HRESULT hr = NOERROR;
 
-  pProperties->cBuffers = 10;
+  pProperties->cBuffers = DSHOW_BUFFERS;
   pProperties->cbBuffer = spdif_header.max_frame_size();
 
   ALLOCATOR_PROPERTIES Actual;
