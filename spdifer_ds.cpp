@@ -5,13 +5,9 @@
 #include "decss\DeCSSInputPin.h"
 
 ///////////////////////////////////////////////////////////////////////////////
-// Define number of buffers sent to downstream. Each buffer contains one
-// SPDIF frame, so this value determines total buffer length.
-//
-// For 48kHz AC3 this leads to:
-// 1536 [samples/fr] / 48000 [samples/s] * 30 [frames] ~= 900ms
+// Number of DirectShow buffers.
 
-#define DSHOW_BUFFERS 30
+#define DSHOW_BUFFERS 10
 
 // uncomment this to log timing information into DirectShow log
 //#define LOG_TIMING
@@ -290,10 +286,10 @@ SpdiferDS::Receive(IMediaSample *in)
   if (in->IsDiscontinuity() == S_OK)
   {
     DbgLog((LOG_TRACE, 3, "SpdiferDS(%x)::Receive(): Discontinuity", this));
-    sink->send_discontinuity();
-    // we have to reset because we may need to drop incomplete frame in the decoder
+    // Send buffered samples downstream and mark next sample as discontinuity
     flush();
     reset();
+    sink->send_discontinuity();
   }
 
   /////////////////////////////////////////////////////////
