@@ -6,7 +6,7 @@ Spdifer is a DirectShow filter that allows media players to passthrough audio
 streams of various formats to digital (SPDIF) output without any change. This
 allows to use digital connection for multi-channel sound.
 
-See more info at the following article:
+See more info in this article:
 http://ac3filter.net/files/docs/ac3filter_1_30b/spdif_eng.pdf
 
 Copyright (c) 2007 by Alexander Vigovsky
