@@ -674,12 +674,13 @@ SpdiferDS::DecideBufferSize(IMemAllocator *pAlloc, ALLOCATOR_PROPERTIES *pProper
 STDMETHODIMP 
 SpdiferDS::GetPages(CAUUID *pPages)
 {
-  pPages->cElems = 1;
+  pPages->cElems = 2;
   pPages->pElems = (GUID *) CoTaskMemAlloc(sizeof(GUID) * pPages->cElems);
   if (pPages->pElems == NULL)
     return E_OUTOFMEMORY;
 
-  (pPages->pElems)[0] = CLSID_SpdiferDlg;
+  (pPages->pElems)[0] = CLSID_SpdiferMain;
+  (pPages->pElems)[1] = CLSID_SpdiferAbout;
   return NOERROR;
 }
 

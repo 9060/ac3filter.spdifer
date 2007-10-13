@@ -93,6 +93,11 @@ printf "Building package...\n";
 `copy spdifer.ax.manifest $package`;
 `copy spdifer_config\\spdifer_config.exe.manifest $package`;
 
+# registry files
+`copy WaveOut.*.reg $package`;
+`copy DirectSound.*.reg $package`;
+
+
 # info files
 `copy _readme.txt $package`;
 `copy _changes_eng.txt $package`;

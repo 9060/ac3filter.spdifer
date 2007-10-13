@@ -81,29 +81,31 @@ IDD_ABOUT DIALOG DISCARDABLE  0, 0, 370, 168
 STYLE WS_CHILD
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "What is it?",IDC_GRP_ABOUT,8,8,175,67
-    LTEXT           "Spdifer is a DirectShow filter that allows media players to passthrough audio streams of various formats to digital (SPDIF) output without any change. This allows to use digital connection for multi-channel sound.",
-                    IDC_LBL_ABOUT1,13,17,164,40
-    LTEXT           "Used automatically by most multimedia players. ",
-                    IDC_LBL_ABOUT2,13,61,151,9
-    GROUPBOX        "License",IDC_GRP_LICENSE,8,75,175,69
+    GROUPBOX        "What is it?",IDC_GRP_ABOUT,8,8,175,136
+    LTEXT           "Spdifer is a DirectShow filter that allows media players to passthrough multi-channel sound to the digital (SPDIF) output without any change, so an external receiver can decode it.",
+                    IDC_LBL_ABOUT1,13,20,164,40
+    LTEXT           "It is used automatically by most multimedia players. Just specify media formats you want to passthrough. To disable the filter uncheck all supported formats.",
+                    IDC_LBL_ABOUT2,13,60,164,33
+    GROUPBOX        "License",IDC_GRP_LICENSE,187,8,175,65
     CTEXT           "This program is free software and can be distributed according to the terms of GNU General Public License version 2.",
-                    IDC_LBL_LICENSE,18,95,153,36
-    GROUPBOX        "Contact author",IDC_GRP_CONTACT,187,8,175,67
+                    IDC_LBL_LICENSE,198,28,153,34
+    GROUPBOX        "Contact author",IDC_GRP_CONTACT,187,74,175,70
     LTEXT           "Please report about all bugs. Feel free to email author with your ideas, criticism, etc. Please write in English or Russian only. Subject should contain 'AC3Filter' word (due to automatic filtering).",
-                    IDC_LBL_CONTACT,192,17,164,40
+                    IDC_LBL_CONTACT,192,86,164,40
     CONTROL         "Homepage|http://ac3filter.net/",IDC_LNK_HOME,"Button",
                     BS_OWNERDRAW | BS_CENTER | BS_VCENTER | BS_FLAT | 
-                    WS_TABSTOP,192,59,52,8
+                    WS_TABSTOP,192,128,52,8
     CONTROL         "Project forum|http://ac3filter.net/forum/",
                     IDC_LNK_FORUM,"Button",BS_OWNERDRAW | BS_CENTER | 
-                    BS_VCENTER | BS_FLAT | WS_TABSTOP,248,59,52,8
-    CONTROL         "mail to author|mailto:xvalex@mail.ru?Subject=AC3Filter",
+                    BS_VCENTER | BS_FLAT | WS_TABSTOP,248,128,52,8
+    CONTROL         "mail to author|mailto:ac3filter@gmail.com?Subject=AC3Filter",
                     IDC_LNK_EMAIL,"Button",BS_OWNERDRAW | BS_CENTER | 
-                    BS_FLAT | WS_TABSTOP,304,59,52,8
+                    BS_FLAT | WS_TABSTOP,304,128,52,8
     RTEXT           "Spdifer ver. %s Copyright (c) 2007 by Alexander Vigovsky",
                     IDC_VER,8,148,299,12,SS_CENTERIMAGE
     PUSHBUTTON      "Donate",IDC_BTN_DONATE,313,148,50,12,BS_FLAT
+    CTEXT           "This filter is a part of AC3Filter project.",
+                    IDC_LBL_ABOUT3,13,107,164,16
 END
 
 
@@ -159,6 +161,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_SPDIF               "SPDIF options"
+    IDS_ABOUT               "About"
 END
 
 #endif    // Neutral (Default) resources

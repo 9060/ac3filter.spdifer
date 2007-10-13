@@ -121,9 +121,16 @@ bool set_merit(HKEY hive, LPCSTR key, int merit)
 // Initialization / Deinitialization
 ///////////////////////////////////////////////////////////////////////////////
 
-CUnknown * WINAPI SpdiferDlg::CreateInstance(LPUNKNOWN lpunk, HRESULT *phr)
+CUnknown * WINAPI SpdiferDlg::CreateMain(LPUNKNOWN lpunk, HRESULT *phr)
 {
-  CUnknown *punk = new SpdiferDlg("Spdifer property page", lpunk, phr, IDD_SPDIF, IDS_SPDIF);
+  CUnknown *punk = new SpdiferDlg("Spdifer Main page", lpunk, phr, IDD_SPDIF, IDS_SPDIF);
+  if (punk == NULL) *phr = E_OUTOFMEMORY;
+  return punk;
+}
+
+CUnknown * WINAPI SpdiferDlg::CreateAbout(LPUNKNOWN lpunk, HRESULT *phr)
+{
+  CUnknown *punk = new SpdiferDlg("Spdifer About page", lpunk, phr, IDD_ABOUT, IDS_ABOUT);
   if (punk == NULL) *phr = E_OUTOFMEMORY;
   return punk;
 }

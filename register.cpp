@@ -67,9 +67,12 @@ const AMOVIESETUP_FILTER sudSpdifer =
 };
 
 CFactoryTemplate g_Templates[] = {
-    { L"Spdifer options page"
-    , &CLSID_SpdiferDlg
-    , SpdiferDlg::CreateInstance },
+    { L"Spdifer Main page"
+    , &CLSID_SpdiferMain
+    , SpdiferDlg::CreateMain },
+    { L"Spdifer About page"
+    , &CLSID_SpdiferAbout
+    , SpdiferDlg::CreateAbout },
     { L"Spdifer"
     , &CLSID_Spdifer
     , SpdiferDS::CreateInstance

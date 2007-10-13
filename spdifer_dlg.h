@@ -8,7 +8,8 @@
 class SpdiferDlg : public CBasePropertyPage, public SpdiferParams
 {
 public:
-  static CUnknown * WINAPI CreateInstance (LPUNKNOWN lpunk, HRESULT *phr);
+  static CUnknown * WINAPI CreateMain(LPUNKNOWN lpunk, HRESULT *phr);
+  static CUnknown * WINAPI CreateAbout(LPUNKNOWN lpunk, HRESULT *phr);
 
   void reload_state();
 

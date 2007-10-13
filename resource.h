@@ -3,6 +3,7 @@
 // Used by spdifer.rc
 //
 #define IDS_SPDIF                       1
+#define IDS_ABOUT                       2
 #define IDD_SPDIF                       105
 #define IDD_ABOUT                       107
 #define IDC_GRP_DECODER_INFO            50301
@@ -36,6 +37,7 @@
 #define IDC_GRP_ABOUT                   52801
 #define IDC_LBL_ABOUT1                  52802
 #define IDC_LBL_ABOUT2                  52803
+#define IDC_LBL_ABOUT3                  52808
 #define IDC_GRP_LICENSE                 52804
 #define IDC_LBL_LICENSE                 52805
 #define IDC_GRP_CONTACT                 52806
