@@ -200,7 +200,7 @@ SpdiferDlg::OnDeactivate()
 // Handle messages
 ///////////////////////////////////////////////////////////////////////////////
 
-BOOL 
+INT_PTR 
 SpdiferDlg::OnReceiveMessage(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
   switch (uMsg)

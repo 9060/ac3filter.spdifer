@@ -6,7 +6,7 @@ Spdifer is a DirectShow filter that allows media players to passthrough
 multi-channel sound to the digital (SPDIF) output without any change, so an 
 external receiver can decode it.
 
-Supports passthrough for AC3, DTS and MPEG Audio (including mp3) formats.
+Supports passthrough for AC3, DTS and MPEG Audio formats.
 All passthrough features of the 'big brother' AC3Filter are supported.
 
 See more info in this article:
@@ -14,7 +14,7 @@ http://ac3filter.net/files/docs/ac3filter_1_30b/spdif_eng.pdf
 
 This filter is a part if AC3Filter project.
 
-Copyright (c) 2007 by Alexander Vigovsky
+Copyright (c) 2007-2009 by Alexander Vigovsky
 
 
 License:

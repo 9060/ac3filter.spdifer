@@ -14,9 +14,9 @@
 
 #define VALIDATE(cond, err_code) if (!(cond)) return err_code;
 
-void cr2crlf(char *_buf, int _size)
+void cr2crlf(char *_buf, size_t _size)
 {
-  int cnt = 0;
+  size_t cnt = 0;
 
   char *src;
   char *dst;
@@ -649,7 +649,7 @@ SpdiferDS::DecideBufferSize(IMemAllocator *pAlloc, ALLOCATOR_PROPERTIES *pProper
   HRESULT hr = NOERROR;
 
   pProperties->cBuffers = DSHOW_BUFFERS;
-  pProperties->cbBuffer = spdif_header.max_frame_size();
+  pProperties->cbBuffer = (long)spdif_header.max_frame_size();
 
   ALLOCATOR_PROPERTIES Actual;
   if FAILED(hr = pAlloc->SetProperties(pProperties, &Actual))
