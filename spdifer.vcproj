@@ -64,6 +64,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="strmbasd_mbcs.lib dsound.lib winmm.lib comctl32.lib"
 				OutputFile="$(OutDir)\$(ProjectName).ax"
+				ModuleDefinitionFile="spdifer.def"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -87,6 +88,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="register.cmd $(ConfigurationName)"
 			/>
 		</Configuration>
 		<Configuration
@@ -135,7 +137,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="strmbasd_mbcs.lib dsound.lib winmm.lib comctl32.lib"
-				OutputFile="$(OutDir)\$(ProjectName).ax"
+				OutputFile="$(OutDir)\$(ProjectName)64.ax"
+				ModuleDefinitionFile="spdifer.def"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
 			/>
@@ -159,6 +162,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="register.cmd $(PlatformName)\$(ConfigurationName)"
 			/>
 		</Configuration>
 		<Configuration
@@ -208,6 +212,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="strmbase_mbcs.lib dsound.lib winmm.lib comctl32.lib "
 				OutputFile="$(OutDir)\$(ProjectName).ax"
+				ModuleDefinitionFile="spdifer.def"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -233,6 +238,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="register.cmd $(ConfigurationName)"
 			/>
 		</Configuration>
 		<Configuration
@@ -282,7 +288,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="strmbase_mbcs.lib dsound.lib winmm.lib comctl32.lib "
-				OutputFile="$(OutDir)\$(ProjectName).ax"
+				OutputFile="$(OutDir)\$(ProjectName)64.ax"
+				ModuleDefinitionFile="spdifer.def"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -308,6 +315,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="register.cmd $(PlatformName)\$(ConfigurationName)"
 			/>
 		</Configuration>
 	</Configurations>

@@ -1,4 +1,3 @@
-LIBRARY spdifer.ax
 EXPORTS
   DllGetClassObject PRIVATE
   DllCanUnloadNow PRIVATE
