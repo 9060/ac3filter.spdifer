@@ -49,7 +49,7 @@ Source: "x64\Release\spdifer64.ax";                      DestDir: "{app}\x64"; C
 Source: "spdifer_config\Release\spdifer_config.exe";     DestDir: "{app}"; Components: prog\filter32; Flags: 32bit RestartReplace UninsRestartDelete IgnoreVersion
 Source: "spdifer_config\x64\Release\spdifer_config.exe"; DestDir: "{app}\x64"; Components: prog\filter64; Flags: 64bit RestartReplace UninsRestartDelete IgnoreVersion
 
-Source: "_readme.txt"; DestDir: "{app}"
+Source: "Readme.txt";  DestDir: "{app}"
 Source: "Changes.txt"; DestDir: "{app}"
 Source: "GPL.txt";     DestDir: "{app}"
 
@@ -57,5 +57,5 @@ Source: "GPL.txt";     DestDir: "{app}"
 Name: "{group}\AC3Filter home"; Filename: "http://ac3filter.net"
 Name: "{group}\Spdifer config"; Filename: "{app}\spdifer_config.exe"; Components: prog\filter32
 Name: "{group}\Spdifer config"; Filename: "{app}\x64\spdifer_config.exe"; Components: prog\filter64 and not prog\filter32
-Name: "{group}\Readme"; Filename: "{app}\_readme.txt"
+Name: "{group}\Readme"; Filename: "{app}\Readme.txt"
 Name: "{group}\Uninstall Spdifer"; Filename: "{uninstallexe}"
