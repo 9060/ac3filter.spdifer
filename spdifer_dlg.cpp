@@ -12,11 +12,11 @@
 
 #define SAFE_RELEASE(p) { if (p) p->Release(); p = 0; }
 
-#define dlg_printf(dlg, ctrl, format, params)                     \
-{                                                                 \
-  char buf[255];                                                  \
-  sprintf(buf, format, ##params);                                 \
-  SendDlgItemMessage(dlg, ctrl, WM_SETTEXT, 0, (LONG)(LPSTR)buf); \
+#define dlg_printf(dlg, ctrl, format, params)                       \
+{                                                                   \
+  char buf[255];                                                    \
+  sprintf(buf, format, ##params);                                   \
+  SendDlgItemMessage(dlg, ctrl, WM_SETTEXT, 0, (LPARAM)(LPSTR)buf); \
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -333,7 +333,7 @@ SpdiferDlg::update_dynamic_controls()
   if (memcmp(info, old_info, sizeof(old_info)) || refresh)
   {
     memcpy(old_info, info, sizeof(old_info));
-    SendDlgItemMessage(m_Dlg, IDC_EDT_INFO, WM_SETTEXT, 0, (LONG)(LPSTR)info);
+    SendDlgItemMessage(m_Dlg, IDC_EDT_INFO, WM_SETTEXT, 0, (LPARAM)(LPSTR)info);
   }
 
   dlg_printf(m_Dlg, IDC_EDT_FRAMES, "%i", frames);
